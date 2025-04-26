@@ -4,9 +4,32 @@ from streamlit_folium import st_folium
 import folium
 import requests
 
+# Set Streamlit page config
+st.set_page_config(
+    page_title="RoboRide Controller",
+    page_icon="🚗",
+    layout="centered",  # or "wide"
+    initial_sidebar_state="collapsed"
+)
+
 st.title("RoboRide: Location Selector")
 
 st.markdown("Click on the map to choose **Start** and **Destination** points.")
+with st.sidebar:
+    st.header("🧭 RoboRide Guide")
+    st.image("src/assets/images/smart_car_tesla.jpg")
+    st.markdown("""
+    1. **Click on the map** to select a starting point.
+    2. Click again to set the **destination**.
+    3. Once both points are selected:
+       - Their **latitude/longitude** will be shown.
+       - You can **send the coordinates** to the Raspberry Pi.
+    4. The smart car will automatically **navigate** to the destination.
+
+    ---
+
+    **Tip**: Refresh the page if you want to reset the points.
+    """)
 
 # Create empty session state
 if "start" not in st.session_state:
