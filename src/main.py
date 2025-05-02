@@ -35,7 +35,7 @@ if "drive_mode" not in st.session_state:
 ngrok_url = st.text_input("Enter ngrok URL",)
 
 # Create folium map
-m = folium.Map(location=[30.586241, 31.482737], zoom_start=15)
+m = folium.Map(location=[30.586241, 31.482737], zoom_start=20)
 
 # Add destination marker if selected
 if st.session_state.destination:
